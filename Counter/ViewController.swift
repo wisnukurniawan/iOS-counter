@@ -8,25 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate, UITextFieldDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tapButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        countLabel.text = "0"
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.onLongPressed(_:)))
-        longGesture.minimumPressDuration = 1
+        longGesture.minimumPressDuration = 0.5
         tapButton.addGestureRecognizer(longGesture)
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func onButtonTap(_ sender: UIButton) {
